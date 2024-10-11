@@ -1,0 +1,11 @@
+class AFN_Sem11Ou00:
+    def accepts(self, string):
+        for i in range(len(string) - 1):
+            if string[i:i+2] == "11" or string[i:i+2] == "00":
+                return False
+        return True
+
+
+afn = AFN_Sem11Ou00()
+print(afn.accepts("101"))
+print(afn.accepts("1100"))
