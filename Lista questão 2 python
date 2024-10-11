@@ -1,0 +1,17 @@
+class AFD_ParZeros:
+    def __init__(self):
+        self.state = 0
+
+    def transition(self, symbol):
+        if symbol == '0':
+            self.state = (self.state + 1) % 2  # Alterna entre 0 e 1 usando módulo
+
+    def accepts(self, string):
+        for symbol in string:
+            self.transition(symbol)
+        return self.state == 0
+
+
+afd = AFD_ParZeros()
+print(afd.accepts("1100"))
+print(afd.accepts("1001"))
