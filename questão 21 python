@@ -1,0 +1,23 @@
+class AFN_BA:
+    def accepts(self, string):
+        b_count = 0
+        a_count = 0
+        
+        for symbol in string:
+            if symbol == 'b':
+                b_count += 1
+            elif symbol == 'a':
+                if b_count > 0:
+                    a_count += 1
+                    b_count -= 1  
+                else:
+                    return False
+            else:
+                return False 
+
+        return b_count == 0 and a_count > 0  
+
+
+afn = AFN_BA()
+print(afn.accepts("bab"))
+print(afn.accepts("bba"))
