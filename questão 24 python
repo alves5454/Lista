@@ -1,0 +1,26 @@
+class AFD_DuasSequencias010:
+    def __init__(self):
+        self.count = 0
+        self.state = 0
+
+    def transition(self, symbol):
+        if self.state == 0 and symbol == '0':
+            self.state = 1
+        elif self.state == 1 and symbol == '1':
+            self.state = 2
+        elif self.state == 2 and symbol == '0':
+            self.state = 3
+        elif self.state == 3:
+            if symbol == '1':
+                self.count += 1
+            self.state = 2 if symbol == '1' else 1
+
+    def accepts(self, string):
+        for symbol in string:
+            self.transition(symbol)
+        return self.count >= 2 
+
+
+afd = AFD_DuasSequencias010()
+print(afd.accepts("010010")) 
+print(afd.accepts("101")) 
