@@ -1,0 +1,11 @@
+class AFN_Contem110:
+    def accepts(self, string):
+        for i in range(len(string) - 2):
+            if string[i:i+3] == '110':
+                return True
+        return False
+
+
+afn = AFN_Contem110()
+print(afn.accepts("11100"))
+print(afn.accepts("000"))
