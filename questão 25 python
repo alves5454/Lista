@@ -1,0 +1,11 @@
+class AFN_AAntesDeB:
+    def accepts(self, string):
+        for symbol in string:
+            if symbol == 'b':
+                return string.count('a') == string.index('b')
+        return True
+
+
+afn = AFN_AAntesDeB()
+print(afn.accepts("aaabbb"))  
+print(afn.accepts("abab"))     
