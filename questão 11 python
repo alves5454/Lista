@@ -1,0 +1,17 @@
+class AFD_ImparAs:
+    def __init__(self):
+        self.state = 0  
+
+    def transition(self, símbolo):
+        if símbolo == 'a':
+            self.state ^= 1 
+
+    def accepts(self, string):
+        for símbolo in string:
+            self.transition(símbolo)
+        return self.state == 1
+
+
+afd = AFD_ImparAs()
+print(afd.accepts("ab"))
+print(afd.accepts("aab"))
