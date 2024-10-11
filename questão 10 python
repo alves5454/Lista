@@ -1,0 +1,11 @@
+class AFN_ZeroSeguidoDeUm:
+    def accepts(self, string):
+        for i in range(len(string) - 1):
+            if string[i] == '0' and string[i + 1] == '1':
+                return True
+        return False
+
+
+afn = AFN_ZeroSeguidoDeUm()
+print(afn.accepts("0011"))
+print(afn.accepts("111"))
